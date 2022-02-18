@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.devsuperior.cursomc.domain.enums.TipoCliente;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Cliente implements Serializable {
@@ -31,6 +32,7 @@ public class Cliente implements Serializable {
 	private String cpfCnpj;
 	private Integer tipo; // externo a classe, o atributo tipo é um enum TipoCliente
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy = "cliente")
 	@Column( name = "enderecos")
 	private List<Endereco> enderecos = new ArrayList<Endereco>();
