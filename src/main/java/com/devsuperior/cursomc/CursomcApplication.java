@@ -1,19 +1,12 @@
 package com.devsuperior.cursomc;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 import java.util.Arrays;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.format.datetime.joda.LocalDateTimeParser;
 
 import com.devsuperior.cursomc.domain.Categoria;
 import com.devsuperior.cursomc.domain.Cidade;
@@ -116,9 +109,6 @@ public class CursomcApplication implements CommandLineRunner {
 		
 		clienteRepository.saveAll(Arrays.asList(cli1));
 		enderecoRepository.saveAll(Arrays.asList(e1, e2));
-		
-		LocalDateTime data;
-		
 		
 		Pedido ped1 = new Pedido(null, LocalDateTime.of(2022, 02, 04, 10, 32), e1, cli1);
 		Pedido ped2 = new Pedido(null, LocalDateTime.of(2022, 02, 10, 19, 35), e2, cli1);
