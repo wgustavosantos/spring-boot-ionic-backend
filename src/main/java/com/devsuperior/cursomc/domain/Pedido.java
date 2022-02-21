@@ -1,6 +1,8 @@
 package com.devsuperior.cursomc.domain;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Objects;
@@ -28,7 +30,7 @@ public class Pedido implements Serializable {
 	private Integer id;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-	private Date instante;
+	private LocalDateTime instante;
 
 	@JsonManagedReference
 	@OneToOne(cascade=CascadeType.ALL, mappedBy = "pedido") // na entidade Pagamento, o id será o mesmo
@@ -49,7 +51,7 @@ public class Pedido implements Serializable {
 	public Pedido() {
 	}
 
-	public Pedido(Integer id, Date instante, Endereco enderecoDeEntrega, Cliente cliente) {
+	public Pedido(Integer id, LocalDateTime instante, Endereco enderecoDeEntrega, Cliente cliente) {
 		this.id = id;
 		this.instante = instante;
 		this.enderecoDeEntrega = enderecoDeEntrega;
@@ -64,11 +66,11 @@ public class Pedido implements Serializable {
 		this.id = id;
 	}
 
-	public Date getInstante() {
+	public LocalDateTime getInstante() {
 		return instante;
 	}
 
-	public void setInstante(Date instante) {
+	public void setInstante(LocalDateTime instante) {
 		this.instante = instante;
 	}
 

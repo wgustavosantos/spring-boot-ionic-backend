@@ -1,5 +1,6 @@
 package com.devsuperior.cursomc.domain;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -12,32 +13,32 @@ public class PagamentoComBoleto extends Pagamento {
 	private static final long serialVersionUID = 1L;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
-	private Date dataVencimento;
+	private LocalDateTime dataVencimento;
 	@JsonFormat(pattern = "dd/MM/yyyy")
-	private Date dataPagamento;
+	private LocalDateTime dataPagamento;
 
 	public PagamentoComBoleto() {
 	}
 
-	public PagamentoComBoleto(Estadopagamento estado, Pedido pedido, Date dataVencimento, Date dataPagamento) {
+	public PagamentoComBoleto(Estadopagamento estado, Pedido pedido, LocalDateTime dataVencimento, LocalDateTime dataPagamento) {
 		super(estado, pedido);
 		this.dataVencimento = dataVencimento;
 		this.dataPagamento = dataPagamento;
 	}
 
-	public Date getDataVencimento() {
+	public LocalDateTime getDataVencimento() {
 		return dataVencimento;
 	}
 
-	public void setDataVencimento(Date dataVencimento) {
+	public void setDataVencimento(LocalDateTime dataVencimento) {
 		this.dataVencimento = dataVencimento;
 	}
 
-	public Date getDataPagamento() {
+	public LocalDateTime getDataPagamento() {
 		return dataPagamento;
 	}
 
-	public void setDataPagamento(Date dataPagamento) {
+	public void setDataPagamento(LocalDateTime dataPagamento) {
 		this.dataPagamento = dataPagamento;
 	}
 
