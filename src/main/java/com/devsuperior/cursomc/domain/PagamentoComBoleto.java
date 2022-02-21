@@ -7,22 +7,32 @@ import com.devsuperior.cursomc.domain.enums.Estadopagamento;
 public class PagamentoComBoleto extends Pagamento {
 	private static final long serialVersionUID = 1L;
 	
-	private Integer numeroDeParcelas;
+	private Date dataVencimento;
+	private Date dataPagamento;
 
 	public PagamentoComBoleto() {
 	}
 
-	public PagamentoComBoleto(Estadopagamento estado, Pedido pedido, Integer numeroDeParcelas) {
+	public PagamentoComBoleto(Estadopagamento estado, Pedido pedido, Date dataVencimento, Date dataPagamento) {
 		super(estado, pedido);
-		this.numeroDeParcelas = numeroDeParcelas;
+		this.dataVencimento = dataVencimento;
+		this.dataPagamento = dataPagamento;
 	}
 
-	public Integer getNumeroDeParcelas() {
-		return numeroDeParcelas;
+	public Date getDataVencimento() {
+		return dataVencimento;
 	}
 
-	public void setNumeroDeParcelas(Integer numeroDeParcelas) {
-		this.numeroDeParcelas = numeroDeParcelas;
+	public void setDataVencimento(Date dataVencimento) {
+		this.dataVencimento = dataVencimento;
+	}
+
+	public Date getDataPagamento() {
+		return dataPagamento;
+	}
+
+	public void setDataPagamento(Date dataPagamento) {
+		this.dataPagamento = dataPagamento;
 	}
 
 }

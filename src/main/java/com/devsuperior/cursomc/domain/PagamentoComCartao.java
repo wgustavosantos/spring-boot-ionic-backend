@@ -1,38 +1,26 @@
 package com.devsuperior.cursomc.domain;
 
-import java.util.Date;
-
 import com.devsuperior.cursomc.domain.enums.Estadopagamento;
 
 public class PagamentoComCartao extends Pagamento {
 	private static final long serialVersionUID = 1L;
 	
-	private Date dataVencimento;
-	private Date dataPagamento;
+	private Integer numeroDeParcelas;
 
 	public PagamentoComCartao() {
 	}
 
-	public PagamentoComCartao(Estadopagamento estado, Pedido pedido, Date dataVencimento, Date dataPagamento) {
+	public PagamentoComCartao(Estadopagamento estado, Pedido pedido, Integer numeroDeParcelas) {
 		super(estado, pedido);
-		this.dataVencimento = dataVencimento;
-		this.dataPagamento = dataPagamento;
+		this.numeroDeParcelas = numeroDeParcelas;
 	}
 
-	public Date getDataVencimento() {
-		return dataVencimento;
+	public Integer getNumeroDeParcelas() {
+		return numeroDeParcelas;
 	}
 
-	public void setDataVencimento(Date dataVencimento) {
-		this.dataVencimento = dataVencimento;
-	}
-
-	public Date getDataPagamento() {
-		return dataPagamento;
-	}
-
-	public void setDataPagamento(Date dataPagamento) {
-		this.dataPagamento = dataPagamento;
+	public void setNumeroDeParcelas(Integer numeroDeParcelas) {
+		this.numeroDeParcelas = numeroDeParcelas;
 	}
 
 }
