@@ -22,7 +22,7 @@ public class Pedido implements Serializable {
 	private Integer id;
 	private Date instante;
 
-	@OneToOne(cascade=CascadeType.ALL, mappedBy = "pedido") // vai ser o mesmo id da entidade Pagamento
+	@OneToOne(cascade=CascadeType.ALL, mappedBy = "pedido") // na entidade Pagamento, o id será o mesmo
 	private Pagamento pagamento;
 
 	@ManyToOne

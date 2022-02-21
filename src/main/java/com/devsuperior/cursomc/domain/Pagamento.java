@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import com.devsuperior.cursomc.domain.enums.Estadopagamento;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED) // mapeando com herança
 public abstract class Pagamento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -24,7 +24,7 @@ public abstract class Pagamento implements Serializable {
 
 	@OneToOne
 	@JoinColumn(name = "pedido_id")// PK e FK ao mesmo tempo
-	@MapsId//mapeando o id de pedido, mesmo id para ambas as entidades
+	@MapsId//mapeando o id da entidade Pedido, mesmo id para ambas as entidades
 	private Pedido pedido;
 
 	public Pagamento() {
