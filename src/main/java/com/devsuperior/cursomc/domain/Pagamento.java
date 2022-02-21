@@ -23,8 +23,8 @@ public class Pagamento implements Serializable {
 	private Estadopagamento estado;
 
 	@OneToOne
-	@JoinColumn(name = "pedido_id")
-	@MapsId
+	@JoinColumn(name = "pedido_id")// PK e FK ao mesmo tempo
+	@MapsId//mapeando o id de pedido, mesmo id para ambas as entidades
 	private Pedido pedido;
 
 	public Pagamento() {

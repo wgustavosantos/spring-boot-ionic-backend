@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -21,13 +22,15 @@ public class Pedido implements Serializable {
 	private Integer id;
 	private Date instante;
 
-	@OneToOne(cascade=CascadeType.ALL, mappedBy = "pedido")
+	@OneToOne(cascade=CascadeType.ALL, mappedBy = "pedido") // vai ser o mesmo id da entidade Pagamento
 	private Pagamento pagamento;
 
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name = "endereco_de_entrega_id")
 	private Endereco enderecoDeEntrega;
 
 	@ManyToOne
+	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 
 	public Pedido() {
