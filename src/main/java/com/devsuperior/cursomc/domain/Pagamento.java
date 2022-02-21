@@ -20,7 +20,7 @@ public abstract class Pagamento implements Serializable {
 
 	@Id
 	private Integer id;
-	private Estadopagamento estado;
+	private Integer estado;
 
 	@OneToOne
 	@JoinColumn(name = "pedido_id")// PK e FK ao mesmo tempo
@@ -31,7 +31,7 @@ public abstract class Pagamento implements Serializable {
 	}
 
 	public Pagamento(Estadopagamento estado, Pedido pedido) {
-		this.estado = estado;
+		this.estado = estado.getCod();
 		this.pedido = pedido;
 	}
 
@@ -44,11 +44,11 @@ public abstract class Pagamento implements Serializable {
 	}
 
 	public Estadopagamento getEstado() {
-		return estado;
+		return Estadopagamento.toEnum(estado);
 	}
 
 	public void setEstado(Estadopagamento estado) {
-		this.estado = estado;
+		this.estado = estado.getCod();
 	}
 
 	public Pedido getPedido() {
