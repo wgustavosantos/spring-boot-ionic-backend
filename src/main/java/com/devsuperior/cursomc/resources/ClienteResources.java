@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.devsuperior.cursomc.domain.Categoria;
 import com.devsuperior.cursomc.domain.Cliente;
 import com.devsuperior.cursomc.services.ClienteService;
 
@@ -18,9 +19,9 @@ public class ClienteResources {
 	private ClienteService clienteService;
 	
 	@RequestMapping(value = "/{id}", method =RequestMethod.GET)
-	public ResponseEntity<?> listar(@PathVariable Integer id) {	
+	public ResponseEntity<Cliente> listar(@PathVariable Integer id) {	
 		
-		Cliente cliente = clienteService.buscarPorId(id);
+		Cliente cliente = clienteService.find(id);
 		
 		/*return ResponseEntity.ok(categoria);*/
 		return ResponseEntity.ok().body(cliente);
