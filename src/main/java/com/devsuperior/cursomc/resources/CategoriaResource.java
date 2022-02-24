@@ -26,5 +26,11 @@ public class CategoriaResource {
 		return ResponseEntity.ok().body(categoria);
 		
 	}
+	
+	public ResponseEntity<Void> insert(Categoria obj){
+		obj = categoriaService.insert(obj);
+		
+		
+	}
 
 }
