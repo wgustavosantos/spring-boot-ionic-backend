@@ -1,11 +1,13 @@
 package com.devsuperior.cursomc.resources;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.devsuperior.cursomc.domain.Categoria;
+import com.devsuperior.cursomc.domain.dtos.CategoriaDTO;
 import com.devsuperior.cursomc.services.CategoriaService;
 
 @RestController
@@ -26,7 +29,7 @@ public class CategoriaResource {
 	private CategoriaService categoriaService;
 	
 	@RequestMapping(value = "/{id}", method =RequestMethod.GET)
-	public ResponseEntity<Categoria> listar(@PathVariable Integer id) {	
+	public ResponseEntity<Categoria> find(@PathVariable Integer id) {	
 		
 		Categoria categoria = categoriaService.find(id);
 		
@@ -65,6 +68,19 @@ public class CategoriaResource {
 		
 		return ResponseEntity.noContent().build();
 		
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<CategoriaDTO>> findAll() {
+		List<Categoria> listObj = categoriaService.findAll();
+		
+		List<CategoriaDTO> listObjDTO = new ArrayList<>();
+		
+		for (Categoria categoria : listObj) {
+			listObjDTO.add(new CategoriaDTO(categoria));
+		}
+		
+		return ResponseEntity.ok().body(listObjDTO);
 	}
 
 }
