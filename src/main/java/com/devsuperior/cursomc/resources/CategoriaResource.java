@@ -58,7 +58,10 @@ public class CategoriaResource {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Void> udpdate(@PathVariable Integer id, @RequestBody Categoria obj ){
+	public ResponseEntity<Void> udpdate(@PathVariable Integer id, @Valid @RequestBody CategoriaDTO objDTO ){
+
+		Categoria obj = categoriaService.fromDTO(objDTO);
+		
 		obj.setId(id);
 		obj = categoriaService.update(obj);
 		
