@@ -118,11 +118,11 @@ public class CursomcApplication implements CommandLineRunner {
 		Pedido ped1 = new Pedido(null, LocalDateTime.of(2022, 02, 04, 10, 32), e1, cli1);
 		Pedido ped2 = new Pedido(null, LocalDateTime.of(2022, 02, 10, 19, 35), e2, cli1);
 		
-		Pagamento pagto1 = new PagamentoComCartao(Estadopagamento.QUITADO, ped1, 6);
+		Pagamento pagto1 = new PagamentoComCartao(null, Estadopagamento.QUITADO, ped1, 6);
 		
 		ped1.setPagamento(pagto1);
 		
-		Pagamento pagto2 = new PagamentoComBoleto(Estadopagamento.PENDENTE, ped2, LocalDateTime.of(2022, 02, 11, 00, 00), null);
+		Pagamento pagto2 = new PagamentoComBoleto(null, Estadopagamento.PENDENTE, ped2, LocalDateTime.of(2022, 02, 11, 00, 00), null);
 		
 		ped2.setPagamento(pagto2);
 		
