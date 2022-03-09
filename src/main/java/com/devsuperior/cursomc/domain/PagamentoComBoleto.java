@@ -20,7 +20,7 @@ public class PagamentoComBoleto extends Pagamento {
 	}
 
 	public PagamentoComBoleto(Estadopagamento estado, Pedido pedido, LocalDateTime dataVencimento, LocalDateTime dataPagamento) {
-		super(estado, pedido);
+		super(null, estado, pedido);
 		this.dataVencimento = dataVencimento;
 		this.dataPagamento = dataPagamento;
 	}
