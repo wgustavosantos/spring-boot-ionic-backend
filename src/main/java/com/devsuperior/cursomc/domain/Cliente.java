@@ -28,7 +28,7 @@ public class Cliente implements Serializable {
 	private Integer id;
 	private String nome;
 	private String email;
-	private String cpfCnpj;
+	private String cpfOuCnpj;
 	private Integer tipo; // externo a classe, o atributo tipo é um enum TipoCliente
 
 	@OneToMany(mappedBy = "cliente")
@@ -46,11 +46,11 @@ public class Cliente implements Serializable {
 	public Cliente() {
 	}
 
-	public Cliente(Integer id, String nome, String email, String cpfCnpj, TipoCliente tipo) {
+	public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
-		this.cpfCnpj = cpfCnpj;
+		this.cpfOuCnpj = cpfOuCnpj;
 		this.tipo = (tipo == null) ? null : tipo.getCod();
 	}
 
@@ -78,12 +78,12 @@ public class Cliente implements Serializable {
 		this.email = email;
 	}
 
-	public String getCpfCnpj() {
-		return cpfCnpj;
+	public String getOuCnpj() {
+		return cpfOuCnpj;
 	}
 
-	public void setCpfCnpj(String cpfCnpj) {
-		this.cpfCnpj = cpfCnpj;
+	public void setOuCnpj(String cpfOuCnpj) {
+		this.cpfOuCnpj = cpfOuCnpj;
 	}
 
 	public TipoCliente getTipo() {
