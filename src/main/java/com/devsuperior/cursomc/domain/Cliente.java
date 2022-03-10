@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -31,8 +32,7 @@ public class Cliente implements Serializable {
 	private String cpfOuCnpj;
 	private Integer tipo; // externo a classe, o atributo tipo é um enum TipoCliente
 
-	@OneToMany(mappedBy = "cliente")
-	@Column(name = "enderecos")
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL) /* Toda operação que modifica, reflete em cascata nos Enderecos*/
 	private List<Endereco> enderecos = new ArrayList<Endereco>();
 
 	@ElementCollection
