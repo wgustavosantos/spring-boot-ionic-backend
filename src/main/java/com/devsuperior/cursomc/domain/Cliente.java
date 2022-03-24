@@ -28,8 +28,9 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(unique = true)
 	private String nome;
+	
+	@Column(unique = true)
 	private String email;
 	private String cpfOuCnpj;
 	private Integer tipo; // externo a classe, o atributo tipo é um enum TipoCliente
