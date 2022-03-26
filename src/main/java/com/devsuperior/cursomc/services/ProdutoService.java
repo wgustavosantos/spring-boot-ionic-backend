@@ -38,6 +38,8 @@ public class ProdutoService {
 		List<Categoria> categorias = CatRepository.findAllById(ids);
 		
 		return repository.search(nome, categorias, pageRequest);
+		//return repo.findDistinctByNomeContainingAndCategoriasIn(nome, categorias, pageRequest);
+		//padrão de nome do spring data jpa, nao usando query methods
 		
 	}
 
