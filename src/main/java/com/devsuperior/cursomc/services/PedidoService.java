@@ -34,6 +34,9 @@ public class PedidoService {
 
 	@Autowired
 	private ItemPedidoRepository itemPedidoRepository;
+	
+	@Autowired
+	private ClienteService clienteService;
 
 	public Pedido find(Integer id) {
 
@@ -44,6 +47,8 @@ public class PedidoService {
 	}
 
 	public Pedido insert(Pedido obj) {
+		
+		obj.setCliente(clienteService.find(obj.getCliente().getId()));
 
 		obj.setId(null);
 		obj.setInstante(LocalDateTime.now());
@@ -55,7 +60,7 @@ public class PedidoService {
 			boletoService.preencherPagamentoComBoleto(pagto,
 					Date.from(obj.getInstante().atZone(ZoneId.systemDefault()).toInstant()));
 		}
-		
+
 		obj = pedidoRepository.save(obj);
 		pagamentoRepository.save(obj.getPagamento());
 
@@ -65,11 +70,11 @@ public class PedidoService {
 			ip.setPreco(produtoService.find(ip.getProduto().getId()).getPreco());
 			ip.setProduto(produtoService.find(ip.getProduto().getId()));
 			ip.setPedido(obj);
-			
+
 		}
 
 		itemPedidoRepository.saveAll(obj.getItens());
-
+		System.out.println(obj);
 		return obj;
 
 	}
