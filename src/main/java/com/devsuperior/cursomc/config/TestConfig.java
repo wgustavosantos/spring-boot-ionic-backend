@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.devsuperior.cursomc.services.DBService;
+import com.devsuperior.cursomc.services.EmailService;
+import com.devsuperior.cursomc.services.MockEmailService;
 
 @Configuration
 @Profile("test") /* Indica que todos os "Beans" da classe vão ser ativados quando o profile de test estiver ativo no application.properties */
@@ -21,5 +23,11 @@ public class TestConfig {
 		
 		return true;
 	}
+	
+	@Bean
+	public EmailService MockEmailService() {
+		return new MockEmailService();
+	}
+	
 
 }

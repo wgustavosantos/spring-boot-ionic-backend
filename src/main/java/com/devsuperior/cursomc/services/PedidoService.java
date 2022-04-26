@@ -37,6 +37,9 @@ public class PedidoService {
 	
 	@Autowired
 	private ClienteService clienteService;
+	
+	@Autowired
+	private MockEmailService mockEmailService;
 
 	public Pedido find(Integer id) {
 
@@ -74,7 +77,7 @@ public class PedidoService {
 		}
 
 		itemPedidoRepository.saveAll(obj.getItens());
-		System.out.println(obj);
+		mockEmailService.sendOrderConfirmationEmail(obj);
 		return obj;
 
 	}
