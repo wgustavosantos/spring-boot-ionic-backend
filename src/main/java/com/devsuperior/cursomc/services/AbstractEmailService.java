@@ -20,7 +20,7 @@ public abstract class AbstractEmailService implements EmailService{
 		sendEmail(sm);
 	}
 
-	private SimpleMailMessage prepareSimpleMailMessageFromPedido(Pedido pedido) {
+	protected SimpleMailMessage prepareSimpleMailMessageFromPedido(Pedido pedido) {
 		
 		SimpleMailMessage sm = new SimpleMailMessage();
 		sm.setTo(pedido.getCliente().getEmail());

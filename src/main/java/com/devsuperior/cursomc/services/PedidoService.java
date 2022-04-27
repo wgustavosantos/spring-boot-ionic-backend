@@ -40,6 +40,9 @@ public class PedidoService {
 	
 	@Autowired
 	private MockEmailService mockEmailService;
+	
+	@Autowired
+	private SmtpEmailService smtpEmailService;
 
 	public Pedido find(Integer id) {
 
@@ -77,7 +80,8 @@ public class PedidoService {
 		}
 
 		itemPedidoRepository.saveAll(obj.getItens());
-		mockEmailService.sendOrderConfirmationEmail(obj);
+		//mockEmailService.sendOrderConfirmationEmail(obj); */ Testando email com mockEmailService /*
+		smtpEmailService.sendOrderConfirmationEmail(obj);
 		return obj;
 
 	}
