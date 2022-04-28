@@ -43,6 +43,7 @@ public class PedidoService {
 	
 	@Autowired
 	private SmtpEmailService smtpEmailService;
+	
 
 	public Pedido find(Integer id) {
 
@@ -54,7 +55,7 @@ public class PedidoService {
 
 	public Pedido insert(Pedido obj) {
 		
-		obj.setCliente(clienteService.find(obj.getCliente().getId()));
+ 		obj.setCliente(clienteService.find(obj.getCliente().getId()));
 
 		obj.setId(null);
 		obj.setInstante(LocalDateTime.now());
@@ -81,7 +82,8 @@ public class PedidoService {
 
 		itemPedidoRepository.saveAll(obj.getItens());
 		//mockEmailService.sendOrderConfirmationEmail(obj); */ Testando email com mockEmailService /*
-		smtpEmailService.sendOrderConfirmationEmail(obj);
+		//smtpEmailService.sendOrderConfirmationEmail(obj); /* testando email com smtp do google */
+		smtpEmailService.sendOrderConfirmationHtmlEmail(obj);
 		return obj;
 
 	}
