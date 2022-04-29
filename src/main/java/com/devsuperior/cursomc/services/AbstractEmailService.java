@@ -64,8 +64,6 @@ public abstract class AbstractEmailService implements EmailService {
 		} catch (MessagingException e) {
 			sendOrderConfirmationEmail(pedido);
 		}
-		
-		
 	}
 
 	protected MimeMessage prepareMimeMessageFromPedido(Pedido pedido) throws MessagingException {

@@ -34,9 +34,9 @@ public class SmtpEmailService extends AbstractEmailService{
 	@Override
 	public void sendHtmlEmail(MimeMessage msg) {
 		
-		LOG.info("Enviando email...");
+		LOG.info("\n" + "Enviando email...");
 		javaMailSender.send(msg);
-		LOG.info("Email enviado");
+		LOG.info("\n" + "Email enviado");
 		
 		
 	}

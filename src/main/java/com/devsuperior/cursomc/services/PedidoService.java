@@ -82,7 +82,7 @@ public class PedidoService {
 
 		itemPedidoRepository.saveAll(obj.getItens());
 		//mockEmailService.sendOrderConfirmationEmail(obj); */ Testando email com mockEmailService /*
-		//smtpEmailService.sendOrderConfirmationEmail(obj); /* testando email com smtp do google */
+		//smtpEmailService.sendOrderConfirmationEmail(obj); /* testando email com smtp do Google */
 		smtpEmailService.sendOrderConfirmationHtmlEmail(obj);
 		return obj;
 
