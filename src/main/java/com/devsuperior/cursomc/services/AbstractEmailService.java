@@ -10,11 +10,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Component;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import com.devsuperior.cursomc.domain.Pedido;
 
+@Component
 public abstract class AbstractEmailService implements EmailService {
 
 	@Value("${default.sender}") /* Faz o frmwrk capturar o valor da propriedade no app.properties */
