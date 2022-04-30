@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -23,6 +24,10 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 	
 	private static final String [] PUBLIC_MATCHES = {
 			"/h2-console/**",
+	};
+	
+	/*Caminhos somente para leitura (somente get, não permite outros add com post)*/
+	private static final String [] PUBLIC_MATCHES_GET = {
 			"/produtos/**",
 			"/categorias/**"
 	};
@@ -43,6 +48,8 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 		/* Autoriza os caminhos que estao no vetor, e para todo o resto exige autenticação */
 		http.authorizeHttpRequests()
 			.antMatchers(PUBLIC_MATCHES)
+			.permitAll()
+			.antMatchers(HttpMethod.GET, PUBLIC_MATCHES_GET)
 			.permitAll()
 			.anyRequest().authenticated();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS); /* Assegurar que o backend não vai criar sessão de usuario */
