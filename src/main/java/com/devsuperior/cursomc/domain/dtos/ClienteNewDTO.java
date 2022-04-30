@@ -8,8 +8,9 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import com.devsuperior.cursomc.services.validation.ClienteInsert;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@ClienteInsert //Minha própria anotação
+@ClienteInsert // Minha própria anotação
 public class ClienteNewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -24,6 +25,9 @@ public class ClienteNewDTO implements Serializable {
 	@NotEmpty(message = "Preenchimento obrigatório")
 	private String cpfOuCnpj;
 	private Integer tipo; // externo a classe, o atributo tipo é um enum TipoCliente
+
+	@NotEmpty(message = "Preenchimento obrigatório")
+	private String senha;
 
 	@NotEmpty(message = "Preenchimento obrigatório")
 	private String logradouro;
@@ -69,7 +73,7 @@ public class ClienteNewDTO implements Serializable {
 		return cpfOuCnpj;
 	}
 
-	public void setCpfCnpj(String cpfOuCnpj) {
+	public void setCpfOuCnpj(String cpfOuCnpj) {
 		this.cpfOuCnpj = cpfOuCnpj;
 	}
 
@@ -151,6 +155,14 @@ public class ClienteNewDTO implements Serializable {
 
 	public void setCidadeId(Integer cidadeId) {
 		CidadeId = cidadeId;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 }

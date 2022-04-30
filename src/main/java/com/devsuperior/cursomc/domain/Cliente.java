@@ -27,15 +27,21 @@ public class Cliente implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String nome;
-	
+
 	@Column(unique = true)
 	private String email;
 	private String cpfOuCnpj;
 	private Integer tipo; // externo a classe, o atributo tipo é um enum TipoCliente
+	
+	@JsonIgnore
+	private String senha;
 
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL) /* Toda operação que modifica, reflete em cascata nos Enderecos*/
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL) /*
+																 * Toda operação que modifica, reflete em cascata nos
+																 * Enderecos
+																 */
 	private List<Endereco> enderecos = new ArrayList<Endereco>();
 
 	@ElementCollection
@@ -49,12 +55,13 @@ public class Cliente implements Serializable {
 	public Cliente() {
 	}
 
-	public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
+	public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo, String senha) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.cpfOuCnpj = cpfOuCnpj;
 		this.tipo = (tipo == null) ? null : tipo.getCod();
+		this.senha = senha;
 	}
 
 	public Integer getId() {
@@ -81,11 +88,11 @@ public class Cliente implements Serializable {
 		this.email = email;
 	}
 
-	public String getOuCnpj() {
+	public String getCpfOuCnpj() {
 		return cpfOuCnpj;
 	}
 
-	public void setOuCnpj(String cpfOuCnpj) {
+	public void setCpfOuCnpj(String cpfOuCnpj) {
 		this.cpfOuCnpj = cpfOuCnpj;
 	}
 
@@ -119,6 +126,14 @@ public class Cliente implements Serializable {
 
 	public void setPedidos(List<Pedido> pedidos) {
 		this.pedidos = pedidos;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	@Override
