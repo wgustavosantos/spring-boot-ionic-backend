@@ -38,8 +38,8 @@ public class PedidoService {
 	@Autowired
 	private ClienteService clienteService;
 	
-	@Autowired
-	private MockEmailService mockEmailService;
+	/*@Autowired
+	private MockEmailService mockEmailService;*/
 	
 	@Autowired
 	private SmtpEmailService smtpEmailService;

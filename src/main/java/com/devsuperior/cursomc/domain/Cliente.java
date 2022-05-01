@@ -6,17 +6,20 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.devsuperior.cursomc.domain.enums.Perfil;
 import com.devsuperior.cursomc.domain.enums.TipoCliente;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -34,14 +37,12 @@ public class Cliente implements Serializable {
 	private String email;
 	private String cpfOuCnpj;
 	private Integer tipo; // externo a classe, o atributo tipo é um enum TipoCliente
-	
+
 	@JsonIgnore
 	private String senha;
 
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL) /*
-																 * Toda operação que modifica, reflete em cascata nos
-																 * Enderecos
-																 */
+	/* Toda operação que modifica, reflete em cascata nos Enderecos */
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL) 
 	private List<Endereco> enderecos = new ArrayList<Endereco>();
 
 	@ElementCollection
@@ -50,9 +51,15 @@ public class Cliente implements Serializable {
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "cliente")
-	private List<Pedido> pedidos = new ArrayList<Pedido>();;
+	private List<Pedido> pedidos = new ArrayList<Pedido>();
+
+	@ElementCollection(fetch = FetchType.EAGER)
+	@CollectionTable(name = "PERFIS")
+	private Set<Integer> perfis = new HashSet<>();
 
 	public Cliente() {
+		/* Regra de negócio: Todo usuário do sistema, por padrão, ao ser instanciado, terá o perfil de Cliente*/
+		addPerfil(Perfil.CLIENTE);
 	}
 
 	public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo, String senha) {
@@ -62,6 +69,7 @@ public class Cliente implements Serializable {
 		this.cpfOuCnpj = cpfOuCnpj;
 		this.tipo = (tipo == null) ? null : tipo.getCod();
 		this.senha = senha;
+		addPerfil(Perfil.CLIENTE);/* Regra de negócio: Todo usuário do sistema, por padrão, ao ser instanciado, terá o perfil de Cliente*/
 	}
 
 	public Integer getId() {
@@ -134,6 +142,18 @@ public class Cliente implements Serializable {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public Set<Perfil> getPerfis() {
+		
+		/* Para cada elemento x em perfis, retorna o elemento Perfil(cliente ou admin) de Perfil.toEnum e converte para um Set*/
+		return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
+		
+	}
+
+	public void addPerfil(Perfil perfil) {
+		/* pega o perfil e chama getCod para armazenar o inteiro correspondente ao perfil */
+		perfis.add(perfil.getCod());
 	}
 
 	@Override
