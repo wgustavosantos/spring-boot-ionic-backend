@@ -23,7 +23,7 @@ public abstract class AbstractEmailService implements EmailService {
 	@Autowired
 	private TemplateEngine templateEngine; /* Para processar o template do thymeleaf */
 	
-	@Autowired
+	@Autowired(required = false)
 	private JavaMailSender javaMailSender; /* Injetar na classe para transformar um objeto Pedido em MimeMessage  */
 
 	@Override

@@ -1,7 +1,12 @@
 package com.devsuperior.cursomc.config;
 
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -14,14 +19,28 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
+	@Autowired
+	private Environment environment;
+	
+	
 	private static final String [] PUBLIC_MATCHES = {
 			"/h2-console/**",
+	};
+	
+	/*Caminhos somente para leitura (somente get, não permite outros add com post)*/
+	private static final String [] PUBLIC_MATCHES_GET = {
 			"/produtos/**",
 			"/categorias/**"
 	};
 	
 	@Override /* Método sobrescrevido */
 	protected void configure(HttpSecurity http) throws Exception {
+		
+		/*Para habilitar acesso ao banco h2 - Verifica se o profile de teste está ativo, se sim, libera o acesso*/
+		if(Arrays.asList(environment.getActiveProfiles()).contains("test")) {
+			http.headers().frameOptions().disable();
+		}
+		
 		
 		/* .cors() chama o corsConfigurationSource e define config básicas */
 		http.cors().and().csrf().disable(); /* Ao chamar este método, o cors configuration source é ativado (para fins de evitar erro ao testar*/
@@ -31,6 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		http.authorizeHttpRequests()
 			.antMatchers(PUBLIC_MATCHES).permitAll() /*Permitindo todos os endpoints declarados no vetor */
+			.antMatchers(HttpMethod.GET, PUBLIC_MATCHES_GET).permitAll() /* Somente get nos endpoints que estao no vetor, proibido fazer post, put, delete... */
 			.anyRequest().authenticated();/* Para todo o resto exigir autenticação */
 	}
 	
