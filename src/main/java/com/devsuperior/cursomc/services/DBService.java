@@ -19,6 +19,7 @@ import com.devsuperior.cursomc.domain.PagamentoComCartao;
 import com.devsuperior.cursomc.domain.Pedido;
 import com.devsuperior.cursomc.domain.Produto;
 import com.devsuperior.cursomc.domain.enums.Estadopagamento;
+import com.devsuperior.cursomc.domain.enums.Perfil;
 import com.devsuperior.cursomc.domain.enums.TipoCliente;
 import com.devsuperior.cursomc.repositories.CategoriaRepository;
 import com.devsuperior.cursomc.repositories.CidadeRepository;
@@ -124,14 +125,21 @@ public class DBService {
 		Cliente cli1 = new Cliente(null, "Maria Silva", "gustavoinf18@gmail.com", "363789", TipoCliente.PESSOAFISICA,
 				bCPE.encode("12345678"));
 		cli1.getTelefones().addAll(Arrays.asList("27363323", "93838393"));
+		
+
+		Cliente cli2 = new Cliente(null, "Gustavo Santos", "guto15santos@gmail.com", "64195478499", TipoCliente.PESSOAFISICA, bCPE.encode("12345678"));
+		cli2.getTelefones().addAll(Arrays.asList("91993720104", "984321251"));
+		cli2.addPerfil(Perfil.ADMIN);
 
 		Endereco e1 = new Endereco(null, "Rua Flores", "300", "Apto 203", "Jardim", "38220834", c1, cli1);
 		Endereco e2 = new Endereco(null, "Avenida Matos", "105", "Sala 800", "Centro", "38777012", c2, cli1);
+		Endereco e3 = new Endereco(null, "General Gurjão", "1486", "Prox ao Clube Paroquial", "Pe Luiz", "68600000", c2, cli2);
 
 		cli1.setEnderecos(Arrays.asList(e1, e2));
+		cli2.setEnderecos(Arrays.asList(e3));
 
-		clienteRepository.saveAll(Arrays.asList(cli1));
-		enderecoRepository.saveAll(Arrays.asList(e1, e2));
+		clienteRepository.saveAll(Arrays.asList(cli1, cli2));
+		enderecoRepository.saveAll(Arrays.asList(e1, e2, e3));
 
 		Pedido ped1 = new Pedido(null, LocalDateTime.of(2022, 02, 04, 10, 32), e1, cli1);
 		Pedido ped2 = new Pedido(null, LocalDateTime.of(2022, 02, 10, 19, 35), e2, cli1);
