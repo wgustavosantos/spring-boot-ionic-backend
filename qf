@@ -1,0 +1,443 @@
+[33mcommit fca0f2006056215955c9872531e4a8ae9c2395f5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon May 9 00:29:36 2022 -0300
+
+    javaMailSender bug fix
+
+[33mcommit a0139a88109fa0d705fa345fe5100eab3f535bcd[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Fri May 6 12:50:20 2022 -0300
+
+    Implementando autenticacao e geracao do token JWT - PARTE 2
+
+[33mcommit 9b9ba1211537420f1f8ea0a112fde99bb876460e[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Thu May 5 00:50:57 2022 -0300
+
+    Implementando autenticacao e geracao do token JWT (PARTE 1)
+
+[33mcommit a1a7af41465f0e33f6fb5264d4ccb2178323ad24[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sun May 1 17:07:51 2022 -0300
+
+    Salvando perfis de usuário na base de dados
+
+[33mcommit 67b4c976114006fb4f48d4907c412312cf3c1e37[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sat Apr 30 11:24:04 2022 -0300
+
+    Adicionando senha a Cliente
+
+[33mcommit 463c6b645244342959347c3de9b9197845e26e0c[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sat Apr 30 08:23:04 2022 -0300
+
+    Nome da classe alterada
+
+[33mcommit aba133efdd579cc2f411ca8d1b2050739e648fa1[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Fri Apr 29 22:59:46 2022 -0300
+
+    Configuração inicial do Spring Security
+
+[33mcommit 08f7558de342df72dca1ab92f4f84574b18ee027[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Fri Apr 29 20:15:03 2022 -0300
+
+    webconfig inicial - Spring Security
+
+[33mcommit 95aa1bd46cb553846416d51b41dd4789f100d694[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Fri Apr 29 13:39:09 2022 -0300
+
+    Email HTML
+
+[33mcommit b0aed6e70fb387b86ec9d4a0de032460c6ba69c1[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Thu Apr 28 13:22:56 2022 -0300
+
+    Email HTML - bug
+
+[33mcommit 1d20fb2344b4c71beeed3bccaf7d6941aea0a49d[m[33m ([m[1;31mheroku/main[m[33m)[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Wed Apr 27 19:05:25 2022 -0300
+
+    Crendenciais
+
+[33mcommit d2096dc67657a848d225bd10e2e55868a0c95494[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Tue Apr 26 22:53:29 2022 -0300
+
+    Implementando SmtpEmailService com servidor do Google
+
+[33mcommit 11fcadb27f48b4773033dc5c2dd9180f444b592d[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Tue Apr 26 12:59:50 2022 -0300
+
+    MockEmailService com Logger. Padroes Strategy e Template Method
+
+[33mcommit 0c049df40e0f1ee3e8a6ec826871d50a31ff8510[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Fri Apr 15 15:35:59 2022 -0300
+
+    Implementando toString de Pedido
+
+[33mcommit 5c9e72728f0a9d782674fe1e5a151fec961ea423[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Thu Apr 14 16:47:02 2022 -0300
+
+    config para criação de dados
+
+[33mcommit cfc57db52eddbd0ca3c8d763a232d86458acdddf[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Thu Apr 14 15:56:38 2022 -0300
+
+    versão do java add para heroku
+
+[33mcommit b8fe432014d6d892cf1d4570ee58251067986aaa[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Thu Apr 14 15:45:15 2022 -0300
+
+    Configuração e envio do projeto para produção
+
+[33mcommit 5c64c9b3e0580bdd5c8a4fa0a1eb9efb4d103a1a[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Wed Apr 13 21:14:24 2022 -0300
+
+    Criando profile de desenvolvimento
+
+[33mcommit 266517034ec4452f43e9f59fb0a2cf37a631a242[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sun Apr 3 22:50:58 2022 -0300
+
+    Criando o profile de teste
+
+[33mcommit fdbffe4448e7905e33de5db06bc222d3ca667700[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sun Apr 3 21:54:51 2022 -0300
+
+    inserindo Pedido
+
+[33mcommit ba9423184c687a298eacdc1d2840ae8f97cc8461[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sat Mar 26 16:51:34 2022 -0300
+
+    padrao de nome spring data jpa em ProdutoService
+
+[33mcommit 18998ffe179703992b1253f65e6f567d7afc57ba[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sat Mar 26 16:46:53 2022 -0300
+
+    Total e Subtotal do Pedido
+
+[33mcommit e770eb1c5a061733779d5313070ccdcde57d4c3a[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sat Mar 26 15:34:39 2022 -0300
+
+    Busca de pedidos por nome e categorias - FINALIZADO
+
+[33mcommit 35050d038733f8bd54d9ad684b178ca6d2de6975[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sat Mar 26 09:31:22 2022 -0300
+
+     Busca de pedidos por nome e categorias - PARTE 1
+
+[33mcommit 46638b263eb547b7553f1fc40d27399b624ecae8[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Thu Mar 24 17:58:12 2022 -0300
+
+    Validação customizada: email não repetido na atualização de Cliente
+
+[33mcommit f12d6bccc195d0d77f95565c7e2e24b5498e7a15[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sun Mar 20 22:32:50 2022 -0300
+
+    Validação customizada: email não repetido na inserção de Cliente
+
+[33mcommit c5e1006f26728752d70a34bb75f5f70b77b23c0b[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Tue Mar 15 22:54:33 2022 -0300
+
+    Validacao customizada de CPF ou CNPJ na inserção de cliente
+
+[33mcommit 79cb5b3130163b3c44a904e638f90b50726a870c[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Tue Mar 15 16:02:53 2022 -0300
+
+    Anotação ClienteInsert para validação criado. Falta o validator
+
+[33mcommit f7f3feab03900166a56027055b5c9e98361e5ee7[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Wed Mar 9 23:53:22 2022 -0300
+
+    Ajustando e testando a deleção de Cliente
+
+[33mcommit bc6771af17de5c4d9778a39f862862920f8feb54[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Wed Mar 9 23:31:25 2022 -0300
+
+    Inserindo um novo Cliente com POST"
+
+[33mcommit 542bfcbf4439e5c5b4c8fedf5c641bbae5cdb9f5[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Wed Mar 9 10:55:33 2022 -0300
+
+    Correção: Adicionando null como argumento para estadopagamento
+
+[33mcommit d3a13afa537913bfc02714453e3c815d8ff98bcb[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Wed Mar 9 10:37:55 2022 -0300
+
+    Correção: PagComCartao e PagComBoleto
+
+[33mcommit 77fe64da0053a01730ae31a409f3022fc4f8ac93[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Wed Mar 9 10:29:59 2022 -0300
+
+    Correções: update em CategoriaService e construtor de Pagamento"
+
+[33mcommit d14779616b8b02c9feba2a3bfabe748794aae4a2[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Tue Mar 8 11:07:27 2022 -0300
+
+    menssagem de exceção de deletar cliente
+
+[33mcommit 0c264002ca6aa606f3ec2d88b3d3a2c54bc468c8[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Tue Mar 8 11:03:51 2022 -0300
+
+    update cliente
+
+[33mcommit d32b419d281f3e60887668ca31390d00bb70c3df[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Tue Mar 8 08:39:33 2022 -0300
+
+    Personalizando o retorno da validação
+
+[33mcommit bef2ac6067f5f5589a469b06c348e8f4ac05e581[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Mar 7 10:29:38 2022 -0300
+
+    Validação sintática com Bean Validation CategoriaDTO update
+
+[33mcommit 70fb8c7c9651a0a9729038236f6f00ed5a509a64[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Mar 7 10:24:49 2022 -0300
+
+    Validação sintática com Bean Validation CategoriaDTO
+
+[33mcommit 0be4f4c46e083f5171f9c40ef0d637ecd3a42353[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Fri Feb 25 23:43:58 2022 -0300
+
+    Paginação com parâmetros opcionais na requisição
+
+[33mcommit 8f23e6d3e7fbbcd8f4695e5c446f6b7e697a96b3[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Fri Feb 25 17:26:21 2022 -0300
+
+    Listando todas categorias com DTO
+
+[33mcommit 3829b093f6ec18be9c6aef0578a2f26dc5965620[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Thu Feb 24 17:00:04 2022 -0300
+
+    Deletando uma Categoria com DELETE e excecao personalizada
+
+[33mcommit 845ac85372c27d06f31e24edbef74af687d6adee[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Thu Feb 24 10:41:20 2022 -0300
+
+    Atualizando Categoria com PUT, outros pequenos ajustes
+
+[33mcommit db680463a97abe8df550a6d297b8ab5dcc1ab09e[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Thu Feb 24 10:15:09 2022 -0300
+
+    Inserindo uma nova Categoria com POST - finalizado
+
+[33mcommit 85743c5dff2c6f0f8ad6ce0f12a0627ce89010bd[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Wed Feb 23 23:56:36 2022 -0300
+
+    Inserindo uma nova Categoria com POST
+
+[33mcommit 57d512c1d155f0ee14e033d244e57dce7c83b717[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 21 18:24:31 2022 -0300
+
+    Limpando arquivos
+
+[33mcommit 10861b6ffc5c7851267b3df1e9e3b87a039e40d8[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 21 18:22:59 2022 -0300
+
+    Ajustando datas
+
+[33mcommit 34dbcb204d81690f237ca753dfe827776d6b0c16[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 21 16:56:38 2022 -0300
+
+    Endpoint /pedidos/{id} disponibilizado
+
+[33mcommit fa79027c2cda2ed6670400c923c3df41c4c4c6c6[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 21 16:30:53 2022 -0300
+
+    Associações entre as classes, services, resources
+
+[33mcommit c23ffb9f4bcf65331ad60ef38352628300c0874a[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 21 15:03:37 2022 -0300
+
+    Instanciando objetos ItemPedido
+
+[33mcommit f5d8fa2be4afaab7364ad2043fdaae9b0005e9f1[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 21 13:21:50 2022 -0300
+
+    Mapeamento entre ItemPedido, ItemPeidoPK, Produto e Pedido
+
+[33mcommit b113770b099f4289af501ded523cd317115afba1[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 21 11:25:37 2022 -0300
+
+    ItemPedido e ItemPedidoPK, PK composta e add classe de associacao
+
+[33mcommit 65e35bb0c486e0293aff9fbd83dd973c60ccafe6[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 21 09:47:25 2022 -0300
+
+    Comentários adicionais
+
+[33mcommit 630b02ac4967eaea644a7303760e31eeac36e298[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 21 00:26:54 2022 -0300
+
+    Ajustes finais e finalização do cap 27. Pedido, EstadoPagamento e Pagamento - Parte 3
+
+[33mcommit cc9da1ad6cbc1c1045af8a9c8fba5f813fbf5072[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sun Feb 20 23:50:32 2022 -0300
+
+    Instanciamento das entidades
+
+[33mcommit 59fb52a1bf89ea426d78b71494dfbbe7d1d73460[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sun Feb 20 23:06:10 2022 -0300
+
+    mapeamento de chaves com cascadetype all
+
+[33mcommit e355389ff67afd84d2dfc1c7d6df496efb36ce41[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sun Feb 20 22:17:58 2022 -0300
+
+    Mapeando herança
+
+[33mcommit 2bdd6a56f1d5ee59cbe8af9f46acbb9d2fab95a4[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sun Feb 20 21:59:44 2022 -0300
+
+    One To One / 2 Entidades com o mesmo id
+
+[33mcommit adda7a239f16db3f418ca0d033e08397c0d2ee13[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sun Feb 20 21:47:25 2022 -0300
+
+    Refatoração de código
+
+[33mcommit 27b8aff8d795522ad9999cd10cede4e5558255f9[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sat Feb 19 23:46:03 2022 -0300
+
+    Pedido, EstadoPagamento e Pagamento - Parte 1
+
+[33mcommit afeea314c5203d881be435d1baaf1c5952d70408[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Fri Feb 18 19:50:12 2022 -0300
+
+    s/ClienteService.java
+
+[33mcommit b6e9f05ef662f74c29688aa258339320ba6f9450[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Fri Feb 18 19:48:17 2022 -0300
+
+    Endpoint /clientes/{id} disponível
+
+[33mcommit 98e8a98c5c8407046be01551aa58b16bc335936a[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Fri Feb 18 17:54:00 2022 -0300
+
+    Cliente, TipoCliente, relacionamentos e associacos com Cidade e Estado
+
+[33mcommit 6677ddd07c37f44aa2e570a95692d9021ec348c3[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Fri Feb 18 15:36:14 2022 -0300
+
+    Entidades Endereco e Cliente e seus direcionamentos
+
+[33mcommit 660a7faffe5169404d5fa6efa3873dea07eb1c57[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Fri Feb 18 08:44:18 2022 -0300
+
+    entidades Cidade e Estado, repository e relacionamentos
+
+[33mcommit 1a618e7f5e372fe4e813ad94c7cb08a5c648b1d2[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Thu Feb 17 23:03:47 2022 -0300
+
+    Tratamento de exceção para id não encontrado
+
+[33mcommit 88825c6af6b22d5cf9350e9307b1edb36664e93b[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Thu Feb 17 16:03:10 2022 -0300
+
+    Tratamento para referencia ciclica
+
+[33mcommit e9b74a9b0b2acd033381ee337f133cb504464a1f[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Thu Feb 17 00:32:12 2022 -0300
+
+    produto e associacao muitos para muitos
+
+[33mcommit 6ac71d988f06d24dca13675be2ef9b268879525d[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 14 11:57:59 2022 -0300
+
+    Carga de dados com CommandLineRunner
+
+[33mcommit 62aa3150b93f496c71cb0f82ce4d6efb3bb832fd[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 14 11:05:08 2022 -0300
+
+    Criando repository e service para Categoria
+
+[33mcommit acc710d710a73af6df4806359dd165f2a209bda4[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 14 09:47:26 2022 -0300
+
+    mapeamento da entidade categoria
+
+[33mcommit 514258d5db7fa5677559cb9d048bc7a257671114[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 14 09:45:10 2022 -0300
+
+    configuração adicional banco h2
+
+[33mcommit 49da081cad175df5430419d02a4d8ca7e77c76ff[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 14 09:41:01 2022 -0300
+
+    add dependencias e config bd h2
+
+[33mcommit 65b0455904c46b05b01a6b6f1b6679813f519426[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Mon Feb 14 08:32:11 2022 -0300
+
+    Testando classe de domínio
+
+[33mcommit 14c3b21a087bdb0f631ae666afaced107796e781[m
+Author: Wenderson Santos <guto15santos@gmail.com>
+Date:   Sun Feb 13 23:28:04 2022 -0300
+
+    Projeto criado
