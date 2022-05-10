@@ -33,6 +33,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 			throws IOException, ServletException {
 
 		String header = request.getHeader("Authorization");
+		header = header.substring(7); /* Bug */
 		/* Captura o valor que esta definido no cabeçalho da req */
 
 		/* P/ autorizar usuario */
