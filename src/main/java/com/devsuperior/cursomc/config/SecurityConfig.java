@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -24,6 +25,7 @@ import com.devsuperior.cursomc.security.JWTUtil;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true) /* Para add anotações de pré autorização em endpoints */
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
@@ -37,13 +39,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	private static final String [] PUBLIC_MATCHES = {
 			"/h2-console/**",
+			
 	};
 	
 	/*Caminhos somente para leitura (somente get, não permite outros add com post)*/
 	private static final String [] PUBLIC_MATCHES_GET = {
 			"/produtos/**",
 			"/categorias/**",
-			"/clientes/**"
 	};
 	
 	@Override
