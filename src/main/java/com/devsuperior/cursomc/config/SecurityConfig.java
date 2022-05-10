@@ -42,10 +42,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			
 	};
 	
-	/*Caminhos somente para leitura (somente get, não permite outros add com post)*/
+	/*nao logado -Caminhos somente para leitura (somente get, não permite outros add com post)*/
 	private static final String [] PUBLIC_MATCHES_GET = {
 			"/produtos/**",
 			"/categorias/**",
+	};
+	
+	/*nao logado - Caminhos somente para inserção (somente post, cadastro de usuario nao logado)*/
+	private static final String [] PUBLIC_MATCHES_POST = {
+			"/clientes/**"
 	};
 	
 	@Override
@@ -66,6 +71,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers(PUBLIC_MATCHES)
 			.permitAll()
 			.antMatchers(HttpMethod.GET, PUBLIC_MATCHES_GET)
+			.permitAll()
+			.antMatchers(HttpMethod.POST, PUBLIC_MATCHES_POST)
 			.permitAll()
 			.anyRequest().authenticated();
 		
