@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
@@ -31,7 +32,8 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 
-		String header = request.getHeader("Authorization"); /* Captura o valor que esta definido no cabeçalho da req */
+		String header = request.getHeader("Authorization");
+		/* Captura o valor que esta definido no cabeçalho da req */
 
 		/* P/ autorizar usuario */
 		if (header != null && header.startsWith("Bearer ")) { /* Se header começa com "Bearer " */
@@ -47,8 +49,14 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
 	}
 
-	private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request, String substring) {
-		// TODO Auto-generated method stub
+	/* Gera um objeto com usuario dentro a partir de um token não nullo */
+	private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request, String token) {
+		
+		if(jwtUtil.tokenValido(token)) {
+			String username = jwtUtil.getUsername(token);
+			UserDetails user = userDetailsService.loadUserByUsername(username);
+			return new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+		}
 		return null;
 	}
 

@@ -19,6 +19,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.devsuperior.cursomc.security.JWTAuthenticationFilter;
+import com.devsuperior.cursomc.security.JWTAuthorizationFilter;
 import com.devsuperior.cursomc.security.JWTUtil;
 
 @Configuration
@@ -41,7 +42,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	/*Caminhos somente para leitura (somente get, não permite outros add com post)*/
 	private static final String [] PUBLIC_MATCHES_GET = {
 			"/produtos/**",
-			"/categorias/**"
+			"/categorias/**",
+			"/clientes/**"
 	};
 	
 	@Override
@@ -67,6 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		
 		http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jWTUtil)); /* authenticationManager() vem do polimorfismo   */
+		http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jWTUtil, userDetailsService));		
 		
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS); /* Assegurar que o backend não vai criar sessão de usuario */
 	}
