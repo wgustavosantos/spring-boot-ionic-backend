@@ -75,5 +75,10 @@ public class UserSS implements UserDetails {
 		// Incluir regra de negócio. Por padrão, o usuário está ativo
 		return true;
 	}
+	
+	/*Retorna true caso um dado perfil está contido na lista de perfis de autorização do user */
+	public boolean hasRole(Perfil perfil) {
+		return getAuthorities().contains(new SimpleGrantedAuthority(perfil.getDescricao()));
+	}
 
 }
