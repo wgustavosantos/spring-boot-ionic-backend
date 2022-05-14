@@ -8,7 +8,6 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import com.devsuperior.cursomc.services.validation.ClienteInsert;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @ClienteInsert // Minha própria anotação
 public class ClienteNewDTO implements Serializable {

@@ -142,7 +142,7 @@ public class DBService {
 		
 
 		Pedido ped1 = new Pedido(null, LocalDateTime.of(2022, 02, 04, 10, 32), e1, cli1);
-		Pedido ped2 = new Pedido(null, LocalDateTime.of(2022, 02, 10, 19, 35), e2, cli1);
+		Pedido ped2 = new Pedido(null, LocalDateTime.of(2022, 02, 10, 19, 35), e2, cli2);
 
 		Pagamento pagto1 = new PagamentoComCartao(null, Estadopagamento.QUITADO, ped1, 6);
 

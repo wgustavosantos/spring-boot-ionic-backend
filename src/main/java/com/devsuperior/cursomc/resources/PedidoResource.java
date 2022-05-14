@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.devsuperior.cursomc.domain.Categoria;
 import com.devsuperior.cursomc.domain.Pedido;
-import com.devsuperior.cursomc.domain.dtos.CategoriaDTO;
 import com.devsuperior.cursomc.services.PedidoService;
 
 @RestController
@@ -58,7 +56,7 @@ public class PedidoResource {
 	public ResponseEntity<Page<Pedido>> findPage(
 			@RequestParam(value = "page", defaultValue = "0") Integer page, 
 			@RequestParam(value = "linesPerPage", defaultValue = "24")  Integer linesPerPage,/*24 pois é multiplo de 1, 2, 3 e 4 para criar layouts sem quebrar */
-			@RequestParam(value = "orderBy", defaultValue = "instante") String orderBy, /*Ordeação por instande / data */
+			@RequestParam(value = "orderBy", defaultValue = "instante") String orderBy, /*Ordeação por instante / data */
 			@RequestParam(value = "direction", defaultValue = "ASC")  String direction) {/*Ordeação por decrescente */
 		
 		Page<Pedido> listObj = service.findPage(page, linesPerPage, orderBy, direction);	
