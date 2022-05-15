@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+import com.devsuperior.cursomc.domain.Cliente;
 import com.devsuperior.cursomc.domain.Pedido;
 
 @Component
@@ -24,9 +25,9 @@ public abstract class AbstractEmailService implements EmailService {
 
 	@Autowired
 	private TemplateEngine templateEngine; /* Para processar o template do thymeleaf */
-	
+
 	@Autowired
-	private JavaMailSender javaMailSender; /* Injetar na classe para transformar um objeto Pedido em MimeMessage  */
+	private JavaMailSender javaMailSender; /* Injetar na classe para transformar um objeto Pedido em MimeMessage */
 
 	@Override
 	public void sendOrderConfirmationEmail(Pedido pedido) {
@@ -55,23 +56,24 @@ public abstract class AbstractEmailService implements EmailService {
 				context); /* Por padrão, o Thymeleaf busca na pasta resources/templates */
 
 	}
-	
+
 	@Override
 	public void sendOrderConfirmationHtmlEmail(Pedido pedido) {
-		
+
 		try {
 			MimeMessage mm = prepareMimeMessageFromPedido(pedido);
 			sendHtmlEmail(mm); /* da classe EmailService */
-			
+
 		} catch (MessagingException e) {
 			sendOrderConfirmationEmail(pedido);
 		}
 	}
 
 	protected MimeMessage prepareMimeMessageFromPedido(Pedido pedido) throws MessagingException {
-		
+
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-		MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true); /* true para objeto multiparte*/
+		MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage,
+				true); /* true para objeto multiparte */
 		mimeMessageHelper.setTo(pedido.getCliente().getEmail());
 		mimeMessageHelper.setFrom(sender);
 		mimeMessageHelper.setSubject("Pedido confirmado! Código: " + pedido.getId());
@@ -79,6 +81,25 @@ public abstract class AbstractEmailService implements EmailService {
 		mimeMessageHelper.setText(htmlFromTemplatePedido(pedido), true); /* boolean afirmando que eh um html */
 
 		return mimeMessage;
+	}
+
+	@Override
+	public void sendNewPasswordEmail(Cliente cliente, String newPass) {
+		SimpleMailMessage sm = prepareNewPasswordEmail(cliente, newPass);
+		sendEmail(sm); /* da classe EmailService */
+	}
+
+	protected SimpleMailMessage prepareNewPasswordEmail(Cliente cliente,
+			String newPass) { /* protected p/ subclasse propepor o cabeçalho do metodo */
+
+		SimpleMailMessage sm = new SimpleMailMessage();
+		sm.setTo(cliente.getEmail());
+		sm.setFrom(sender);
+		sm.setSubject("Solicitação de nova senha");
+		sm.setSentDate(new Date(System.currentTimeMillis()));
+		sm.setText("Nova senha: " + newPass);
+		return sm;
+
 	}
 
 }

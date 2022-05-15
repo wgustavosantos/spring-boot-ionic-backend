@@ -10,6 +10,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import com.devsuperior.cursomc.services.DBService;
 import com.devsuperior.cursomc.services.EmailService;
 import com.devsuperior.cursomc.services.MockEmailService;
+import com.devsuperior.cursomc.services.SmtpEmailService;
 
 @Configuration
 @Profile("test") /*
@@ -55,5 +56,10 @@ public class TestConfig {
 		 * 'org.springframework.mail.javamail.JavaMailSender' in your configuration.
 		 */
 	}
+	
+	@Bean
+	 public EmailService emailService() {
+	     return new SmtpEmailService();
+	 }
 
 }

@@ -50,7 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	/*nao logado - Caminhos somente para inserção (somente post, cadastro de usuario nao logado)*/
 	private static final String [] PUBLIC_MATCHES_POST = {
-			"/clientes/**"
+			"/clientes/**",
+			"/auth/forgot/**"
 	};
 	
 	@Override
