@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.devsuperior.cursomc.domain.ItemPedido;
@@ -34,16 +35,18 @@ public class PedidoService {
 
 	@Autowired
 	private ItemPedidoRepository itemPedidoRepository;
-	
+
 	@Autowired
 	private ClienteService clienteService;
-	
+
 	@Autowired
 	private MockEmailService mockEmailService;
-	
+
 	@Autowired
 	private SmtpEmailService smtpEmailService;
-	
+
+	@Value("${spring.profiles.active}")
+	private String profile;
 
 	public Pedido find(Integer id) {
 
@@ -54,8 +57,8 @@ public class PedidoService {
 	}
 
 	public Pedido insert(Pedido obj) {
-		
- 		obj.setCliente(clienteService.find(obj.getCliente().getId()));
+
+		obj.setCliente(clienteService.find(obj.getCliente().getId()));
 
 		obj.setId(null);
 		obj.setInstante(LocalDateTime.now());
@@ -81,9 +84,15 @@ public class PedidoService {
 		}
 
 		itemPedidoRepository.saveAll(obj.getItens());
-		//mockEmailService.sendOrderConfirmationEmail(obj); */ Testando email com mockEmailService /*
-		//smtpEmailService.sendOrderConfirmationEmail(obj); /* testando email com smtp do Google */
-		smtpEmailService.sendOrderConfirmationHtmlEmail(obj);
+
+		if (profile.equalsIgnoreCase("test")) {
+			mockEmailService.sendOrderConfirmationEmail(obj); /* Testando email com mockEmailService */
+		} else if (profile.equalsIgnoreCase("dev")) {
+			smtpEmailService.sendOrderConfirmationEmail(obj); /* testando email com smtp do Google sem formatação */
+			// smtpEmailService.sendOrderConfirmationHtmlEmail(obj); /* testando email com
+			// smtp do Google com formatação */
+		}
+
 		return obj;
 
 	}

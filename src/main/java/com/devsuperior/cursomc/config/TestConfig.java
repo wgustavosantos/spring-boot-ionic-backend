@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import com.devsuperior.cursomc.services.DBService;
 import com.devsuperior.cursomc.services.EmailService;
@@ -25,8 +27,13 @@ public class TestConfig {
 	}
 	
 	@Bean
-	public EmailService MockEmailService() {
+	EmailService MockEmailService() {
 		return new MockEmailService();
+	}
+	
+	@Bean
+	JavaMailSender mainSender() {
+		return new JavaMailSenderImpl();
 	}
 	
 
