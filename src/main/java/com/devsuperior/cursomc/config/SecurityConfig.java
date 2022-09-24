@@ -39,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private JWTUtil jwtUtil;
 
 	private static final String[] PUBLIC_MATCHERS = { "/h2-console/**", "/swagger-ui.html/**", "/configuration/**", "/swagger-resources/**", "/v2/api-docs",
-			"/webjars/**", "cursospring-wg.herokuapp.com/**"  };
+			"/webjars/**", "**/cursospring-wg.herokuapp.com/**"  };
 
 	private static final String[] PUBLIC_MATCHERS_GET = { "/produtos/**", "/categorias/**" };
 
