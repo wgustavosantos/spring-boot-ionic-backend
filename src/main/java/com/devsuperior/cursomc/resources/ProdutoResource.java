@@ -17,6 +17,8 @@ import com.devsuperior.cursomc.domain.dtos.ProdutoDTO;
 import com.devsuperior.cursomc.resources.utils.URL;
 import com.devsuperior.cursomc.services.ProdutoService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping(value = "/produtos")
 public class ProdutoResource {
@@ -25,6 +27,7 @@ public class ProdutoResource {
 	private ProdutoService service;
 	
 	@RequestMapping(value = "/{id}", method =RequestMethod.GET)
+	@ApiOperation(value = "Busca produto por id")
 	public ResponseEntity<Produto> listar(@PathVariable Integer id) {	
 		
 		Produto produto = service.find(id);
@@ -34,6 +37,7 @@ public class ProdutoResource {
 	}
 	
 	@GetMapping
+	@ApiOperation(value = "Retorna produtos com paginação")
 	public ResponseEntity<Page<ProdutoDTO>> findPage(/* Parametro de URL é string */
 			@RequestParam(value = "nome", defaultValue = "") String nome, 
 			@RequestParam(value = "categorias", defaultValue = "") String categorias, 
@@ -51,6 +55,12 @@ public class ProdutoResource {
 				(obj -> new ProdutoDTO(obj));			  
 	
 		return ResponseEntity.ok().body(listObjDTO);
+	}
+	
+	@GetMapping(value = "/all")
+	@ApiOperation(value = "Retorna todos os produtos")
+	public List<Produto> findAll() {
+		return service.findAll();
 	}
 	
 

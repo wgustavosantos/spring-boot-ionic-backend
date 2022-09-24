@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.devsuperior.cursomc.domain.enums.Perfil;
 
-
 public class UserSS implements UserDetails {
 	private static final long serialVersionUID = 1L;
 	

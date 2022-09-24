@@ -27,6 +27,8 @@ import com.devsuperior.cursomc.domain.dtos.ClienteDTO;
 import com.devsuperior.cursomc.domain.dtos.ClienteNewDTO;
 import com.devsuperior.cursomc.services.ClienteService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping(value = "/clientes")
 public class ClienteResources {
@@ -35,6 +37,7 @@ public class ClienteResources {
 	private ClienteService service;
 	
 	@RequestMapping(value = "/{id}", method =RequestMethod.GET)
+	@ApiOperation(value = "Busca cliente por id")
 	public ResponseEntity<Cliente> listar(@PathVariable Integer id) {	
 		
 		Cliente cliente = service.find(id);
@@ -45,6 +48,7 @@ public class ClienteResources {
 	}
 
 	@PostMapping
+	@ApiOperation(value = "Insere cliente")
 	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objDTO){
 		/* setando URI na resposta*/
 		
@@ -61,6 +65,7 @@ public class ClienteResources {
 	
 	
 	@PutMapping(value = "/{id}")
+	@ApiOperation(value = "Atualiza cliente")
 	public ResponseEntity<Void> udpdate(@PathVariable Integer id, @Valid @RequestBody ClienteDTO objDTO ){
 
 		Cliente obj = service.fromDTO(objDTO);
@@ -73,6 +78,7 @@ public class ClienteResources {
 	
 	@DeleteMapping("/{id}")
 	@PreAuthorize("hasAnyRole('ADMIN')")
+	@ApiOperation(value = "Deleta cliente por id")
 	public ResponseEntity<Void> delete(@PathVariable Integer id){
 		service.delete(id);
 		
@@ -81,6 +87,7 @@ public class ClienteResources {
 	
 	@GetMapping
 	@PreAuthorize("hasAnyRole('ADMIN')")
+	@ApiOperation(value = "Busca todos os clientes")
 	public ResponseEntity<List<ClienteDTO>> findAll() {
 		List<Cliente> listObj = service.findAll();
 		List<ClienteDTO> listObjDTO = 
@@ -92,6 +99,7 @@ public class ClienteResources {
 	
 	@GetMapping(value = "/page")
 	@PreAuthorize("hasAnyRole('ADMIN')")
+	@ApiOperation(value = "Retorna todos os clientes com paginação")
 	public ResponseEntity<Page<ClienteDTO>> findPage(
 			@RequestParam(value = "page", defaultValue = "0") Integer page, 
 			@RequestParam(value = "linesPerPage", defaultValue = "24")  Integer linesPerPage,/*24 pois é multiplo de 1, 2, 3 e 4 para criar layouts sem quebrar */

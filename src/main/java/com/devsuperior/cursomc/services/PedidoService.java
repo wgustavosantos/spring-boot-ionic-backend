@@ -17,6 +17,8 @@ import com.devsuperior.cursomc.domain.ItemPedido;
 import com.devsuperior.cursomc.domain.PagamentoComBoleto;
 import com.devsuperior.cursomc.domain.Pedido;
 import com.devsuperior.cursomc.domain.enums.Estadopagamento;
+import com.devsuperior.cursomc.domain.enums.Perfil;
+import com.devsuperior.cursomc.repositories.ClienteRepository;
 import com.devsuperior.cursomc.repositories.ItemPedidoRepository;
 import com.devsuperior.cursomc.repositories.PagamentoRepository;
 import com.devsuperior.cursomc.repositories.PedidoRepository;
@@ -63,6 +65,13 @@ public class PedidoService {
 	}
 
 	public Pedido insert(Pedido obj) {
+		
+		Cliente cliente = clienteService.find(obj.getCliente().getId());
+		
+		UserSS user = UserService.authenticated();
+		if (user==null || !cliente.getId().equals(user.getId())) {
+			throw new AuthorizationException("Acesso negado");
+		}
 
 		obj.setCliente(clienteService.find(obj.getCliente().getId()));
 

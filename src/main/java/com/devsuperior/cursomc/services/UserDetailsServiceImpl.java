@@ -10,6 +10,8 @@ import com.devsuperior.cursomc.domain.Cliente;
 import com.devsuperior.cursomc.repositories.ClienteRepository;
 import com.devsuperior.cursomc.security.UserSS;
 
+
+
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 

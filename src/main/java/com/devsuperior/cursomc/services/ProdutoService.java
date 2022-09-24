@@ -42,9 +42,10 @@ public class ProdutoService {
 		//padrão de nome do spring data jpa, nao usando query methods
 		
 	}
-	
-	public List<Produto> findAll (){
-		return null;
+
+	public List<Produto> findAll() {
+		List<Produto> produtos = repository.findAll();
+		return produtos;
 	}
 
 }

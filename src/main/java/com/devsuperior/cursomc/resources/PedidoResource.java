@@ -20,6 +20,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.devsuperior.cursomc.domain.Pedido;
 import com.devsuperior.cursomc.services.PedidoService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping(value = "/pedidos")
 public class PedidoResource {
@@ -28,6 +30,7 @@ public class PedidoResource {
 	private PedidoService service;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@ApiOperation(value = "Busca pedido por id")
 	public ResponseEntity<Pedido> listar(@PathVariable Integer id) {
 
 		Pedido pedido = service.find(id);
@@ -38,6 +41,7 @@ public class PedidoResource {
 	}
 
 	@PostMapping
+	@ApiOperation(value = "Insere pedido")
 	public ResponseEntity<Void> insert(@Valid @RequestBody Pedido obj) {
 		/* setando URI na resposta */
 
@@ -49,6 +53,7 @@ public class PedidoResource {
 	}
 
 	@GetMapping
+	@ApiOperation(value = "Retorna pedidos com paginação")
 	public ResponseEntity<Page<Pedido>> findPage(@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linesPerPage", defaultValue = "24") Integer linesPerPage,
 			@RequestParam(value = "orderBy", defaultValue = "instante") String orderBy,

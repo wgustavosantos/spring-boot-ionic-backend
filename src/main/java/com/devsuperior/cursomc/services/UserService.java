@@ -5,6 +5,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import com.devsuperior.cursomc.security.UserSS;
 
 
+
 public class UserService {
 	
 	public static UserSS authenticated() {
