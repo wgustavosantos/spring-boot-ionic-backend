@@ -3,17 +3,17 @@
 ### Backend do projeto
 #### Diagrama de classes
 <p align="flex-start">
-  <img alt="Diagrama de classes" src="img/diagrama-de-classes.png" width="80%">
+  <img alt="Diagrama de classes" src="img/diagrama-de-classes.png" width="100%">
 </p>
 
 #### Diagrama de objetos
 <p align="flex-start">
-  <img alt="Diagrama de objetos" src="img/diagrama-de-objetos.png" width="80%">
+  <img alt="Diagrama de objetos" src="img/diagrama-de-objetos.png" width="100%">
 </p>
 
 #### Documentaçao da API com Swagger
 <p align="flex-start">
-  <img alt="login" src="img/Swagger.png" width="65%">
+  <img alt="login" src="img/Swagger.png" width="100%">
 </p>
 
 #### Backend construído utilizando o padrão REST (Nível de maturidade 2 sem HATEOAS - Não RestFul)
