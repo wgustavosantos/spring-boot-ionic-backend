@@ -55,7 +55,9 @@ Utilizar credênciais de adm em https://cursospring-wg.herokuapp.com/login
 }
 ```
 Depois adicionar o token de acesso na sessão de autorização do Postman antes de enviar a requisição. O Spring Security verifica se o token passado é do usuário autenticado
+
 https://user-images.githubusercontent.com/77124683/192181198-c6af5c98-05eb-4d31-ac0d-6a1dca38d547.mp4
+
 #### Documentação da api no POSTAM com possíveis retornos e descrição de endpoints
 
 Se possível, faça o login no POSTAM WEB para testar as requisições você mesmo
