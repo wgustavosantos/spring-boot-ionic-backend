@@ -1,6 +1,8 @@
 # Backend Spring
 ## Projeto do curso Spring Boot, Hibernate, REST, Ionic, JWT, S3, MySQL, MongoDB ofertado pelo prof Nelio Alves na Udemy
 ### Backend do projeto
+- Endpoints da API no Swagger - [Swagger UI](https://cursospring-wg.herokuapp.com/swagger-ui.html)
+- Detalhes das requisições no POSTAM - [DOCUMENTAÇÃO DA API](https://documenter.getpostman.com/view/17433262/2s83S89BeT)
 #### Diagrama de classes
 <p align="flex-start">
   <img alt="Diagrama de classes" src="img/diagrama-de-classes.png" width="100%">
@@ -28,7 +30,7 @@
 - Banco de dados MySQL e implantação no Heroku
 - Autorização e Autenticação JWT
 - Documentação da API com Swagger
--  Você pode verificar os endpoints da aplicação [aqui](https://cursospring-wg.herokuapp.com/swagger-ui.html/)
+-  Você pode verificar os endpoints da aplicação [aqui](https://cursospring-wg.herokuapp.com/swagger-ui.html)
  
 
  #### Documentaçao da API com POSTMAN
