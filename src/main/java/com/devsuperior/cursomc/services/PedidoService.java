@@ -17,8 +17,6 @@ import com.devsuperior.cursomc.domain.ItemPedido;
 import com.devsuperior.cursomc.domain.PagamentoComBoleto;
 import com.devsuperior.cursomc.domain.Pedido;
 import com.devsuperior.cursomc.domain.enums.Estadopagamento;
-import com.devsuperior.cursomc.domain.enums.Perfil;
-import com.devsuperior.cursomc.repositories.ClienteRepository;
 import com.devsuperior.cursomc.repositories.ItemPedidoRepository;
 import com.devsuperior.cursomc.repositories.PagamentoRepository;
 import com.devsuperior.cursomc.repositories.PedidoRepository;
@@ -102,9 +100,9 @@ public class PedidoService {
 
 		if (profile.equalsIgnoreCase("test")) {
 			mockEmailService.sendOrderConfirmationEmail(obj); /* Testando email com mockEmailService */
-		} else if (profile.equalsIgnoreCase("dev")) {
-			smtpEmailService.sendOrderConfirmationEmail(obj); /* testando email com smtp do Google sem formatação */
-			// smtpEmailService.sendOrderConfirmationHtmlEmail(obj); /* testando email com
+		} else if (profile.equalsIgnoreCase("dev") || profile.equalsIgnoreCase("prod" )) {
+			//smtpEmailService.sendOrderConfirmationEmail(obj); /* testando email com smtp do Google sem formatação */
+			 smtpEmailService.sendOrderConfirmationHtmlEmail(obj); /* testando email com
 			// smtp do Google com formatação */
 		}
 
