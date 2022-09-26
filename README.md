@@ -15,7 +15,7 @@
 
 #### Documentaçao da API com Swagger
 <p align="flex-start">
-  <img alt="login" src="img/Swagger.png" width="100%">
+  <img alt="login" src="img/Swagger2.png" width="100%">
 </p>
 
 #### Backend construído utilizando o padrão REST (Nível de maturidade 2 sem HATEOAS - Não RestFul)
